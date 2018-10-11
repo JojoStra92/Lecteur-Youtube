@@ -13,9 +13,7 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     
     var chansons = [Chanson]()
-    
-    
-    
+    let identifiantCell: String = "ChansonCell"
     
     
     
@@ -30,8 +28,22 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
         return chansons.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let chanson = chansons[indexPath.row]
+        //let cell = UITableViewCell()
+        //cell.textLabel?.text = chanson.titre
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: identifiantCell) as? ChansonCell {
+            cell.creerCell(chanson)
+            return cell
+        }
+        
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170
+    }
+    
     
     func ajouterChanson() {
         chansons = [Chanson]()
@@ -39,7 +51,7 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
         chansons.append(cool)
         let  bien = Chanson(artiste: "Orelsan", titre: "Tout va bien", code: "dq6G2YWoRqA")
         chansons.append(bien)
-        let basique = Chanson(artiste: "OOrelsan", titre: "Basique", code: "2bjk26RwjyU")
+        let basique = Chanson(artiste: "Orelsan", titre: "Basique", code: "2bjk26RwjyU")
         chansons.append(basique)
         let ronde = Chanson(artiste: "Orelsan", titre: "La terre est ronde", code: "oGdhZyS2ozo")
         chansons.append(ronde)

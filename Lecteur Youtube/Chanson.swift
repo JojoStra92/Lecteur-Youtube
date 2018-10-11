@@ -41,7 +41,4 @@ class Chanson {
         self._code = code
     }
     
-    func <#name#>(<#parameters#>) -> <#return type#> {
-        <#function body#>
-    }
 }

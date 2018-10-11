@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		392F810E216F5A45006C03E0 /* TableauController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392F810D216F5A45006C03E0 /* TableauController.swift */; };
 		392F8110216F62D3006C03E0 /* Chanson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392F810F216F62D3006C03E0 /* Chanson.swift */; };
+		392F8112216F7921006C03E0 /* ChansonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392F8111216F7921006C03E0 /* ChansonCell.swift */; };
 		39ED0151216E6AEE00C76656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED0150216E6AEE00C76656 /* AppDelegate.swift */; };
 		39ED0156216E6AEE00C76656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39ED0154216E6AEE00C76656 /* Main.storyboard */; };
 		39ED0158216E6AEE00C76656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39ED0157216E6AEE00C76656 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		392F810D216F5A45006C03E0 /* TableauController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableauController.swift; sourceTree = "<group>"; };
 		392F810F216F62D3006C03E0 /* Chanson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chanson.swift; sourceTree = "<group>"; };
+		392F8111216F7921006C03E0 /* ChansonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChansonCell.swift; sourceTree = "<group>"; };
 		39ED014D216E6AEE00C76656 /* Lecteur Youtube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lecteur Youtube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ED0150216E6AEE00C76656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39ED0155216E6AEE00C76656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				39ED015C216E6AEE00C76656 /* Info.plist */,
 				392F810D216F5A45006C03E0 /* TableauController.swift */,
 				392F810F216F62D3006C03E0 /* Chanson.swift */,
+				392F8111216F7921006C03E0 /* ChansonCell.swift */,
 			);
 			path = "Lecteur Youtube";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			files = (
 				392F810E216F5A45006C03E0 /* TableauController.swift in Sources */,
 				39ED0151216E6AEE00C76656 /* AppDelegate.swift in Sources */,
+				392F8112216F7921006C03E0 /* ChansonCell.swift in Sources */,
 				392F8110216F62D3006C03E0 /* Chanson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
