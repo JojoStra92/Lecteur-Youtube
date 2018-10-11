@@ -30,11 +30,41 @@ class ChansonCell: UITableViewCell {
     
     func creerCell(_ chanson: Chanson) {
         self.chanson = chanson
+        telechargerImage() 
         
         let attributed = NSMutableAttributedString(string: self.chanson.titre, attributes: [.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.black])
         let secondeLigne = NSMutableAttributedString(string: "\n" + self.chanson.artiste, attributes: [.font: UIFont.italicSystemFont(ofSize: 20), .foregroundColor: UIColor.darkGray])
         attributed.append(secondeLigne)
         labelCell.attributedText = attributed  
     }
-
+    
+    func telechargerImage() {
+        imageCell.image = #imageLiteral(resourceName: "073 logo")
+        
+        if let url = URL(string: self.chanson.miniatureUrl){
+            let session = URLSession.shared
+            let task = session.dataTask(with: url, completionHandler: { (data, reponse, errer) in
+                if let imageData = data, let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        self.imageCell.image = image
+                    }
+                }
+            })
+        
+        task.resume()
+            
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
