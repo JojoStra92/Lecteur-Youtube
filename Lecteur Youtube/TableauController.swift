@@ -14,22 +14,32 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var chansons = [Chanson]()
     let identifiantCell: String = "ChansonCell"
+    let identifiantsegue = "versVideo"
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = self // pour dire au tableau de se conformer au UITableViewDelegate
+        
+        tableView.dataSource = self //pour dire au tableau de se conformer au UITableViewDataSource
         ajouterChanson()
         title = "Mes vidéo preferées"
         
     }
+    // Ici il s'agit d'un protocole qui définit le nombre de colonne que notre tableau doit avoir
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chansons.count
     }
+    // Ici il s'agit d'un autre protocole qui définit le nombre de celulle qu'on pourait avoir appartir de nos colonne
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        /* let chanson, cette constant recupère l'indexPath de notre array: c'est a dire qu'il nous permettra a partir de l'indexPath de récupere la chanson qui conrespond a l'indexPath */
+        
         let chanson = chansons[indexPath.row]
+        
         //let cell = UITableViewCell()
         //cell.textLabel?.text = chanson.titre
         
@@ -45,8 +55,28 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
         return 140
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let chanson = chansons[indexPath.row]
+        performSegue(withIdentifier: identifiantsegue, sender: chanson)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == identifiantsegue {
+            if let nouveauController = segue.destination as? VideoController {
+                nouveauController.chanson = sender as? Chanson
+            }
+        }
+    }
+    
     
     func ajouterChanson() {
+        /* La fonction ajouterChanson(), permet de selectionner nos chansons, prise directement de youtube.
+         
+        Elle initialise un tableau appeler chansons avec un tableau vide de type Chanson pour s'assurer que le tableau est effectivement vide dès le depart.
+         
+         Ce qui correspond a notre classe chanson coder un peu en arrière. */
+        
         chansons = [Chanson]()
         let cool = Chanson(artiste: "Casseurs Flowters", titre: "Ils sont cools", code: "_DT-4-jJTZc")
         chansons.append(cool)
@@ -64,6 +94,8 @@ class TableauController: UIViewController, UITableViewDelegate, UITableViewDataS
         chansons.append(inacheves)
         
         chansons.append(contentsOf: [cool, bien, basique, ronde, san, seul, inacheves])
+        
+        // Il permet de récharger les données et de mettre a jours les deux protocoles définit un peu plus haut dans le code
         
         tableView.reloadData()
         

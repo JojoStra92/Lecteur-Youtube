@@ -27,8 +27,11 @@ class ChansonCell: UITableViewCell {
 
         
     }
+    // Cette fonction créee une cellule pour contenir l'image et le titre et le nom de l'artistre dans le tableau.
     
     func creerCell(_ chanson: Chanson) {
+        // l'attribut chanson est de types chansons, Qui est notre classe crée un peu loin.
+        
         self.chanson = chanson
         telechargerImage() 
         
@@ -42,6 +45,9 @@ class ChansonCell: UITableViewCell {
         imageCell.image = #imageLiteral(resourceName: "073 logo")
         
         if let url = URL(string: self.chanson.miniatureUrl){
+            
+            // URLSession.shared : veut dire qu'on crée une variable url qui va chercher des url sue internet
+            
             let session = URLSession.shared
             let task = session.dataTask(with: url, completionHandler: { (data, reponse, errer) in
                 if let imageData = data, let image = UIImage(data: imageData) {
